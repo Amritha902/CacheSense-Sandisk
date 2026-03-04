@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Runtime filesystem data
+storage/
+mountpoint/
+
+# Generated datasets
+datasets/
+
+# Benchmark logs
+results/*.txt

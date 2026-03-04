@@ -1,0 +1,19 @@
+Application (echo / cat / dd)
+        |
+        v
+Linux VFS
+        |
+        v
+FUSE Filesystem (cachefs.py)
+        |
+        v
+BlockEngine
+   | entropy analysis
+   | codec selection
+   | compression
+        |
+        v
+4096B Packed Frames
+        |
+        v
+storage/blocks.bin
