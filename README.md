@@ -455,6 +455,76 @@ BlockEngine. The demo is real, not scripted.
 | `output/<run>_full.json` | Full benchmark JSON |
 
 ---
+## Performance Graphs
+
+![Performance](graphs/performance.png)
+
+![Cache Hit Rate](graphs/cache_hit_rate.png)
+
+![Block Distribution](graphs/block_distribution.png)
+## Performance Graphs
+
+### System Throughput
+![Performance](graphs/performance.png)
+
+### Cache Hit Rate
+![Cache Hit Rate](graphs/cache_hit_rate.png)
+
+### Block Type Distribution
+![Block Distribution](graphs/block_distribution.png)
+## Raw Benchmark Outputs
+
+The following files contain the full experiment logs generated during testing.
+
+| Experiment | Output File |
+|-----------|-------------|
+Workload Simulation | results/workload_results.txt |
+Filesystem Stress Test | results/fs_stress_results.txt |
+Large File Write Test | results/bigfile_write_test.txt |
+Runtime Filesystem Stats | results/runtime_stats.txt |
+Dataset Compression Benchmark | results/dataset_compression_results.txt |
+## Structured Benchmark Data
+
+Machine-readable benchmark metrics are stored in:
+
+output/sandisk_hackathon_v1_metrics.csv  
+output/sandisk_hackathon_v1_full.json
+
+These contain:
+
+• compression ratios  
+• per-workload metrics  
+• codec distribution  
+• latency statistics  
+## Quick Demo
+
+Mount filesystem
+
+python fuse/cachefs.py mountpoint/
+
+Write compressible data
+
+echo "log entry log entry log entry" > mountpoint/log.txt
+
+Write random data
+
+dd if=/dev/urandom of=mountpoint/random.bin bs=4K count=100
+
+View live statistics
+
+cat mountpoint/.stats
+### Example runtime statistics
+
+Write Ops              : 60000
+Logical Bytes Written  : 245,760,000
+Physical Bytes Written : 245,760,000
+
+Total Blocks Written   : 60000
+RAW blocks             : 10000
+Compressed blocks      : 50000
+
+Cache Hit Rate         : 83.3%
+Average Compression Ratio : 0.1720
 
 ## Future Work
 
