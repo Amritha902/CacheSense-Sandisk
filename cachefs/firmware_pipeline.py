@@ -33,7 +33,7 @@ FIRMWARE ANALOGY:
   real firmware subsystem with defined latency budgets.
 =============================================================================
 """
-
+from benchmarks.timing_profiler import TimingProfiler
 import os
 import sys
 import time
@@ -46,12 +46,11 @@ _MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 if _MODULE_DIR not in sys.path:
     sys.path.insert(0, _MODULE_DIR)
 
-from pattern_cache    import PatternCache, compute_signature
-from feature_analyzer import FeatureAnalyzer
-from policy_selector  import PolicySelector, CODEC_NAMES
-from compression_engine import CompressionEngine, CODEC_LZ4, CODEC_LZ4HC, CODEC_RAW
-from block_packer     import BlockPacker
-from timing_profiler  import TimingProfiler
+from core.pattern_cache import PatternCache, compute_signature
+from core.policy_selector import PolicySelector
+from core.compression_engine import CompressionEngine
+from core.block_packer import BlockPacker
+from core.feature_analyzer import FeatureAnalyzer
 
 # ---------------------------------------------------------------------------
 # Pipeline Constants
