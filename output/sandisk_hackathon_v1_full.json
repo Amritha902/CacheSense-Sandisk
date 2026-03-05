@@ -1,0 +1,50 @@
+{
+  "run_id": "sandisk_hackathon_v1",
+  "timestamp": 1772730529.5876393,
+  "total_blocks": 400,
+  "duration_s": 0.559,
+  "throughput_MBps": 2.931,
+  "compression_ratio": 0.6352,
+  "space_saving_pct": 36.48,
+  "cache_hit_rate": 0.035,
+  "avg_latency_ms": 1.1686,
+  "p95_latency_ms": 1.8489,
+  "p99_latency_ms": 2.046,
+  "errors": 14,
+  "per_workload": {
+    "random_data": {
+      "block_count": 160,
+      "avg_ratio": 1.0,
+      "avg_latency_us": 949.55,
+      "cache_hit_rate": 0.0,
+      "space_saving_pct": 0.0
+    },
+    "structured_logs": {
+      "block_count": 100,
+      "avg_ratio": 0.2167,
+      "avg_latency_us": 1706.69,
+      "cache_hit_rate": 0.0,
+      "space_saving_pct": 78.33
+    },
+    "repetitive_data": {
+      "block_count": 80,
+      "avg_ratio": 0.2192,
+      "avg_latency_us": 1105.33,
+      "cache_hit_rate": 0.175,
+      "space_saving_pct": 78.08
+    },
+    "archives": {
+      "block_count": 60,
+      "avg_ratio": 1.0,
+      "avg_latency_us": 940.13,
+      "cache_hit_rate": 0.0,
+      "space_saving_pct": 0.0
+    }
+  },
+  "codec_distribution": {
+    "SKIP": 0.26,
+    "RAW": 56.99,
+    "LZ4": 10.36,
+    "LZ4HC": 32.38
+  }
+}
