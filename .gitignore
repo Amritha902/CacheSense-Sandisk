@@ -5,12 +5,25 @@ __pycache__/
 # Virtual environment
 venv/
 
+# Large datasets
+datasets/
+
+# Benchmark outputs
+results/
+output/
+
 # Runtime filesystem data
 storage/
 mountpoint/
 
-# Generated datasets
-datasets/
+# Binary outputs
+*.bin
+*.lz4
+*.log
 
-# Benchmark logs
-results/*.txt
+# Metrics files
+*.csv
+*.json
+
+# Generated graphs
+graphs/*.png

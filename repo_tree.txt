@@ -1,0 +1,52 @@
+.
+├── benchmarks
+│   ├── baseline_comparison.py
+│   ├── benchmark_runner.py
+│   ├── fs_stress_test.py
+│   ├── plot_results.py
+│   ├── real_data_test.py
+│   ├── timing_profiler.py
+│   └── workload_runner.py
+├── CashSelect_Track2_Firmware_Submission.docx
+├── core
+│   ├── block_engine.py
+│   ├── block_packer.py
+│   ├── compression_engine.py
+│   ├── feature_analyzer.py
+│   ├── __init__.py
+│   ├── pattern_cache.py
+│   └── policy_selector.py
+├── dashboard.py
+├── docs
+│   ├── architecture.txt
+│   ├── benchmark_analysis.md
+│   ├── cpu_budget_corrected.md
+│   └── firmware_port.c
+├── fuse
+│   ├── cachefs.py
+│   └── firmware_pipeline.py
+├── .gitignore
+├── graphs
+│   ├── block_distribution.png
+│   ├── cache_hit_rate.png
+│   ├── cache_warmup.png
+│   ├── codec_distribution.png
+│   ├── compression_ratio_by_workload.png
+│   ├── entropy_vs_ratio.png
+│   ├── latency_distribution.png
+│   ├── performance.png
+│   └── throughput_comparison.png
+├── mountpoint
+├── output
+│   ├── sandisk_hackathon_v1_blocks.bin
+│   ├── sandisk_hackathon_v1_full.json
+│   └── sandisk_hackathon_v1_metrics.csv
+├── project_structure.txt
+├── README.md
+├── repo_tree.txt
+├── requirements.txt
+└── storage
+    ├── blocks.bin
+    └── metadata.json
+
+9 directories, 41 files

@@ -48,7 +48,7 @@ _MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 if _MODULE_DIR not in sys.path:
     sys.path.insert(0, _MODULE_DIR)
 
-from cachefs.firmware_pipeline import FirmwarePipeline, PipelineResult, BLOCK_SIZE
+from fuse.firmware_pipeline import FirmwarePipeline, PipelineResult, BLOCK_SIZE
 
 # ---------------------------------------------------------------------------
 # Workload Definitions
