@@ -145,7 +145,7 @@ class CacheSelectFS(Operations):
         self.engine = BlockEngine()
 
         # Single lock for all critical sections (metadata + block I/O)
-        self.lock = threading.Lock()
+        self._mutex = threading.Lock()
 
     # ── FUSE lifecycle ───────────────────────────────────────────────────────
 
@@ -259,7 +259,7 @@ class CacheSelectFS(Operations):
         Adds a zeroed metadata entry; no blocks are allocated yet.
         Returns 0 as a dummy file handle (FUSE accepts any int).
         """
-        with self.lock:
+        with self._mutex:
             meta = _load_metadata()
             meta[path] = {
                 "size":   0,
@@ -284,7 +284,7 @@ class CacheSelectFS(Operations):
         Updates the size field in metadata.
         Existing blocks are retained (simplified — acceptable for demo).
         """
-        with self.lock:
+        with self._mutex:
             meta = _load_metadata()
             if path not in meta:
                 raise FuseOSError(errno.ENOENT)
@@ -306,9 +306,9 @@ class CacheSelectFS(Operations):
         Partial final blocks are zero-padded to exactly 4096 bytes,
         matching real SSD LBA alignment behaviour.
 
-        Thread safety: entire operation is held under self.lock.
+        Thread safety: entire operation is held under self._mutex.
         """
-        with self.lock:
+        with self._mutex:
             meta = _load_metadata()
 
             if path not in meta:
@@ -361,14 +361,14 @@ class CacheSelectFS(Operations):
           4. Extract payload and decompress (LZ4 / LZ4HC / RAW pass-through)
           5. Assemble full file buffer and slice [offset : offset+size]
 
-        Thread safety: entire operation is held under self.lock.
+        Thread safety: entire operation is held under self._mutex.
         """
         # Virtual .stats file
         if path == "/.stats":
             content = self._format_stats().encode()
             return content[offset:offset + size]
 
-        with self.lock:
+        with self._mutex:
             meta = _load_metadata()
 
             if path not in meta:
