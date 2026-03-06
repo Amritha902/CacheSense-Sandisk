@@ -1,0 +1,5 @@
+mmh3
+lz4
+fusepy
+matplotlib
+numpy
